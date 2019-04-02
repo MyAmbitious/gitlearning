@@ -1,0 +1,28 @@
+<html>
+<head>
+	<title>angularJs的事件指令单击ng-click demo</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<script src="angular.min.js"></script>
+	<script>
+		//建立自己的模块
+		//[]中放置的是此模块要引用的其它模块
+		var app = angular.module("myapp",[]);//定义了一个叫myApp的模块
+		//创建控制器
+		//$scope就是控制层与视图层之间交换数据的桥梁
+		//$scope里面可以放变量和方法
+		//相当于java中的public，加上可以在view层使用它，不加相当于java中的private，只能在
+		//controller层使用它
+		app.controller("myController",function($scope){
+		
+			$scope.add=function(){
+				$scope.z = parseInt($scope.x)+parseInt($scope.y);			
+			}		
+		});	
+	</script>
+</head>
+<body ng-app="myapp" ng-controller="myController">
+第一个数:<input ng-model="x" /> 第二个数:<input ng-model="y" />
+<button ng-click="add()">运算</button>
+运算结果：{{z}}
+</body>
+</html>

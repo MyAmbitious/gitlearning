@@ -1,0 +1,33 @@
+<html>
+<head>
+	<title>angularJs的事件指令循环数组 demo6</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<script src="angular.min.js"></script>
+	<script>
+		//建立自己的模块
+		//[]中放置的是此模块要引用的其它模块
+		var app = angular.module("myapp",[]);//定义了一个叫myApp的模块
+		//创建控制器
+		//$scope就是控制层与视图层之间交换数据的桥梁
+		//$scope里面可以放变量和方法
+		//相当于java中的public，加上可以在view层使用它，不加相当于java中的private，只能在
+		//controller层使用它
+		app.controller("myController",function($scope){
+		
+			$scope.list=[120,45,451,457];
+			
+		});	
+	</script>
+</head>
+<body ng-app="myapp" ng-controller="myController">
+<table>
+	<tr ng-repeat="x in list">
+		<td>
+		{{x}}
+		</td>
+	</tr>
+
+
+</table>
+</body>
+</html>
